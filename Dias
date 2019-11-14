@@ -1,0 +1,5 @@
+--Creacion dias de la semana
+
+insert into Dia(CDia,NDia) 
+values 
+  ('D','Domingo'), ('L','Lunes'),('MA','Martes'),('MI','Miercoles'),('J','Jueves'),('V','Viernes'),('S','Sábado')
