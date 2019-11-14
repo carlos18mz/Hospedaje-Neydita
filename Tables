@@ -1,5 +1,5 @@
 create table Pais(
-  CPais int not null constraint PK_Pais Primary key Identity 
+  CPais int not null constraint PK_Pais Primary key Identity,
   NPais varchar(15) not null
 );
 
@@ -9,13 +9,19 @@ create table Ciudad(
   CPais int Foreign Key references Pais(CPais)
 );
 
+create table Tipo_Documento(
+	CTipo_Documento int not null constraint PK_Tipo_Documento Primary key,
+	NTipo_Documento varchar(11)
+	);
+
 create table Persona(
   CPersona int not null Primary key, 
   NPersona nvarchar(30) not null,
-  NDNI int not null,
   DNacimiento datetime not null,
   CCiudad int Foreign Key references Ciudad(CCiudad),
-  TEmail nvarchar(30) null
+  TEmail nvarchar(30) null,
+  NIdentificacion nvarchar(12) not null,
+  CTipo_Documento int Foreign key references Tipo_Documento(CTipo_Documento)
 );
 
 create table Empleado(
@@ -42,7 +48,7 @@ create table Servicio(
 create table Rol(
   CRol int not null constraint PK_Rol Primary Key Identity,
   NRol nvarchar(15) not null,
-  CServicio int Foreign Key references Servicio(CServicio)
+  CServicio int not null Foreign Key references Servicio(CServicio)
 );
 
 create table Categoria(
@@ -54,7 +60,7 @@ create table Categoria(
 create table Horario(
   CHorario int not null constraint PK_Horario Primary Key Identity,
   T_Inicial time not null,
-  T_Final time null not null 
+  T_Final time null  
 );
 
 create table Dia(
@@ -71,7 +77,7 @@ create table Producto(
   CProducto int not null constraint PK_Producto Primary Key identity,
   NProducto nvarchar(15) not null, 
   MPrecio money not null,
-  CTienda int Foreign Key references Tienda(CTienda)
+  CTienda int not null Foreign Key references Tienda(CTienda)
 );
 
 create table Habitacion(
@@ -79,7 +85,7 @@ create table Habitacion(
   FOcupado Bit,
   NPiso smallint not null,
   QCapacidadH int not null,
-  CTipo_Habitacion int foreign key references Tipo_Habitacion(CTipo_Habitacion)
+  CTipo_Habitacion int not null foreign key references Tipo_Habitacion(CTipo_Habitacion)
 );
 
 create table Tipo_Habitacion(
