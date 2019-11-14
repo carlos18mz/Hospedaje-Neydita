@@ -1,174 +1,174 @@
 create table Pais(
-  CPais int constraint PK_Pais Primary key Identity,
-  NPais varchar(15)
+  CPais int not null constraint PK_Pais Primary key Identity 
+  NPais varchar(15) not null
 );
 
 create table Ciudad(
-  CCiudad int constraint PK_Ciudad Primary Key Identity,
-  NCiudad nvarchar(30),
+  CCiudad int not null constraint PK_Ciudad Primary Key Identity,
+  NCiudad nvarchar(30) not null,
   CPais int Foreign Key references Pais(CPais)
 );
 
 create table Persona(
-  CPersona int Primary key, 
-  NPersona nvarchar(30),
-  NDNI int,
-  DNacimiento datetime,
+  CPersona int not null Primary key, 
+  NPersona nvarchar(30) not null,
+  NDNI int not null,
+  DNacimiento datetime not null,
   CCiudad int Foreign Key references Ciudad(CCiudad),
-  TEmail nvarchar(30)
+  TEmail nvarchar(30) null
 );
 
 create table Empleado(
-  CEmpleado int constraint PK_Empleado Primary Key,
-  CRol int Foreign Key references Rol(CRol), 
+  CEmpleado int not null constraint PK_Empleado Primary Key,
+  CRol int not null Foreign Key references Rol(CRol), 
   CEncargado int null Foreign Key references Empleado(CEmpleado),
 );
 
 create table Huesped(
-  CHuesped int constraint PK_Huesped Primary Key,
-  FAdulto Bit, --Bool type
+  CHuesped int not null constraint PK_Huesped Primary Key,
+  FAdulto Bit not null, --Bool type
   CApoderado int null Foreign Key references Huesped(CHuesped)
 );
 
 create table Servicio(
-  CServicio int constraint PK_Servicio Primary key,
-  NServicio nvarchar(20),
-  FDisponible Bit, 
-  MPrecio Money, 
-  TDetalle ntext, 
-  QCapacidadS smallint
+  CServicio int not null constraint PK_Servicio Primary key,
+  NServicio nvarchar(20) not null,
+  FDisponible Bit not null, 
+  MPrecio Money not null, 
+  TDetalle ntext not null, 
+  QCapacidadS smallint not null
 );
 
 create table Rol(
-  CRol int constraint PK_Rol Primary Key Identity,
-  NRol nvarchar(15),
+  CRol int not null constraint PK_Rol Primary Key Identity,
+  NRol nvarchar(15) not null,
   CServicio int Foreign Key references Servicio(CServicio)
 );
 
 create table Categoria(
-  CCategoria int constraint PK_Categoria Primary Key,
-  NCategoria varchar(15),
-  NDescuento real
+  CCategoria int not null constraint PK_Categoria Primary Key,
+  NCategoria varchar(15) not null,
+  NDescuento real not null
 );
 
 create table Horario(
-  CHorario int constraint PK_Horario Primary Key Identity,
-  T_Inicial time,
-  T_Final time
+  CHorario int not null constraint PK_Horario Primary Key Identity,
+  T_Inicial time not null,
+  T_Final time null not null 
 );
 
 create table Dia(
-  CDia varchar(5) constraint PK_Dia Primary Key,
-  NDia varchar(10)
+  CDia varchar(5) not null constraint PK_Dia Primary Key,
+  NDia varchar(10) not null
 );
 
 create table Tienda(
-  CTienda int constraint PK_CTienda Primary Key identity,
-  NTienda nvarchar(30)
+  CTienda int not null constraint PK_CTienda Primary Key identity,
+  NTienda nvarchar(30) not null
 );
 
 create table Producto(
-  CProducto int constraint PK_Producto Primary Key identity,
-  NProducto nvarchar(15), 
-  MPrecio money,
+  CProducto int not null constraint PK_Producto Primary Key identity,
+  NProducto nvarchar(15) not null, 
+  MPrecio money not null,
   CTienda int Foreign Key references Tienda(CTienda)
 );
 
 create table Habitacion(
-  CHabitacion int constraint PK_Habitacion Primary Key Identity (101,1),
+  CHabitacion int not null constraint PK_Habitacion Primary Key Identity (101,1),
   FOcupado Bit,
-  NPiso smallint,
-  QCapacidadH int,
+  NPiso smallint not null,
+  QCapacidadH int not null,
   CTipo_Habitacion int foreign key references Tipo_Habitacion(CTipo_Habitacion)
 );
 
 create table Tipo_Habitacion(
-  CTipo_Habitacion int constraint PK_Tipo_Habitacion Primary Key,
-  NTipo_Habitacion nvarchar(15),
-  MPrecio money
+  CTipo_Habitacion int not null constraint PK_Tipo_Habitacion Primary Key,
+  NTipo_Habitacion nvarchar(15) not null,
+  MPrecio money not null
 );
 
 create table TipoMueble(
-  CTipoMueble int constraint PK_TipoMueble primary key,
-  NTipoMueble nvarchar(15) 
+  CTipoMueble int not null constraint PK_TipoMueble primary key,
+  NTipoMueble nvarchar(15) not null 
 );
 
 create table Comprobante(
-  CComprobante int constraint PK_Comprobante Primary Key,
-  DEmision datetime,
-  MMonto_total money,
+  CComprobante int not null constraint PK_Comprobante Primary Key,
+  DEmision datetime not null,
+  MMonto_total money not null,
   FBoleta Bit
 );
 
 create table Reserva(
-  CReserva int constraint PK_Reserva Primary Key,
+  CReserva int not null constraint PK_Reserva Primary Key,
   FEstadia Bit,
-  CHuesped int Foreign Key references Huesped(CHuesped),
-  CComprobante int foreign Key references Comprobante(CComprobante),
-  MMonto money
+  CHuesped int not null Foreign Key references Huesped(CHuesped),
+  CComprobante int not null foreign Key references Comprobante(CComprobante),
+  MMonto money not null
 );
 
 create table Snack(
-  CSnack int constraint PK_Snack Primary key,
-  QCant_stock int
+  CSnack int not null constraint PK_Snack Primary key,
+  QCant_stock int not null
 );
 
 create table Ingrediente(
-  CIngrediente int constraint PK_Ingrediente Primary Key,
-  NIngrediente varchar(15),
-  QCant_stock int
+  CIngrediente int not null constraint PK_Ingrediente Primary Key,
+  NIngrediente varchar(15) not null,
+  QCant_stock int not null
 );
 
 create table Factura(
-  CRUC int constraint PK_Factura Primary key,
-  TDireccionlegal ntext,
-  NEmpresa nvarchar(30),
-  CFactura int foreign key references Comprobante(CComprobante)
+  CRUC nvarchar(11) not null constraint PK_Factura Primary key,
+  TDireccionlegal ntext not null,
+  NEmpresa nvarchar(30) not null,
+  CFactura int not null foreign key references Comprobante(CComprobante)
 );
 
 create table Plato(
-  CPlato int constraint PK_Plato Primary Key,
-  TPreparacion ntext
+  CPlato int not null constraint PK_Plato Primary Key,
+  TPreparacion ntext not null
 );
 
 create table Huesped_Categoria(
-  CHuesped int Foreign Key references Huesped(CHuesped),
-  CCategoria int Foreign Key references Categoria(CCategoria),
-  DInicioC Datetime
+  CHuesped int not null Foreign Key references Huesped(CHuesped),
+  CCategoria int not null Foreign Key references Categoria(CCategoria),
+  DInicioC Datetime not null
 );
 
 create table Detalle_Servicio(
-  CReserva int Foreign Key references Reserva(CReserva),
-  CServicio int Foreign Key references Servicio(CServicio)
+  CReserva int not null Foreign Key references Reserva(CReserva),
+  CServicio int not null Foreign Key references Servicio(CServicio)
 );
 
 create table Detalle_Consumo(
-  CProducto int Foreign Key references Producto(CProducto),
-  DConsumo datetime,
-  CReserva int Foreign Key references Reserva(CReserva),
-  QConsumo int
+  CProducto int not null Foreign Key references Producto(CProducto),
+  DConsumo datetime not null,
+  CReserva int not null Foreign Key references Reserva(CReserva),
+  QConsumo int not null
 );
 
 create table Horario_Dia(
-  CHorario int Foreign Key references Horario(CHorario),
-  CDia varchar(5) Foreign Key references Dia(CDia),
+  CHorario int not null Foreign Key references Horario(CHorario),
+  CDia varchar(5) not null Foreign Key references Dia(CDia),
   CServicio int null Foreign Key references Servicio(CServicio),
   CTienda int null Foreign Key references Tienda(CTienda),
 );
 
 create table Mueble_Habitacion(
-  CTipoMueble int Foreign Key references TipoMueble(CTipoMueble),
-  CHabitacion int Foreign Key references Habitacion(CHabitacion)
+  CTipoMueble int not null Foreign Key references TipoMueble(CTipoMueble),
+  CHabitacion int not null Foreign Key references Habitacion(CHabitacion)
 );
 
 create table Reserva_Habitacion(
-  CReserva int Foreign Key references Reserva(CReserva),
-  CHabitacion int Foreign Key references Habitacion(CHabitacion),
-  DInicioEstadia datetime,
-  DFinEstadia datetime
+  CReserva int not null Foreign Key references Reserva(CReserva),
+  CHabitacion int not null Foreign Key references Habitacion(CHabitacion),
+  DInicioEstadia datetime not null,
+  DFinEstadia datetime not null
 );
 
 create table Plato_Ingrediente(
-  CPlato int Foreign Key references Plato(CPlato),
-  CIngrediente int Foreign Key references Ingrediente(CIngrediente)
+  CPlato int not null Foreign Key references Plato(CPlato),
+  CIngrediente int not null Foreign Key references Ingrediente(CIngrediente)
 );
