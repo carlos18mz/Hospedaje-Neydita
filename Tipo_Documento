@@ -1,0 +1,4 @@
+--Tipo_Documento
+insert into Tipo_Documento(CTipo_Documento, NTipo_Documento) 
+      values 
+        (1,'DNI'), (2, 'Carne Ext.'), (3,'Pasaporte')
