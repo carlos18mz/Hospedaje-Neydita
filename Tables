@@ -60,7 +60,7 @@ create table Categoria(
 create table Horario(
   CHorario int not null constraint PK_Horario Primary Key Identity,
   T_Inicial time not null,
-  T_Final time null  
+  T_Final time not null  
 );
 
 create table Dia(
@@ -103,12 +103,12 @@ create table Comprobante(
   CComprobante int not null constraint PK_Comprobante Primary Key,
   DEmision datetime not null,
   MMonto_total money not null,
-  FBoleta Bit
+  FBoleta bit not null
 );
 
 create table Reserva(
   CReserva int not null constraint PK_Reserva Primary Key,
-  FEstadia Bit,
+  FEstadia Bit not null,
   CHuesped int not null Foreign Key references Huesped(CHuesped),
   CComprobante int not null foreign Key references Comprobante(CComprobante),
   MMonto money not null
