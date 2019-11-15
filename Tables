@@ -6,22 +6,22 @@ create table Pais(
 create table Ciudad(
   CCiudad int not null constraint PK_Ciudad Primary Key Identity,
   NCiudad nvarchar(30) not null,
-  CPais int Foreign Key references Pais(CPais)
+  CPais int not null Foreign Key references Pais(CPais)
 );
 
 create table Tipo_Documento(
 	CTipo_Documento int not null constraint PK_Tipo_Documento Primary key,
-	NTipo_Documento varchar(11)
+	NTipo_Documento varchar(11) not null
 	);
 
 create table Persona(
   CPersona int not null Primary key, 
   NPersona nvarchar(30) not null,
   DNacimiento datetime not null,
-  CCiudad int Foreign Key references Ciudad(CCiudad),
+  CCiudad int not null Foreign Key references Ciudad(CCiudad),
   TEmail nvarchar(30) null,
   NIdentificacion nvarchar(12) not null,
-  CTipo_Documento int Foreign key references Tipo_Documento(CTipo_Documento)
+  CTipo_Documento int not null Foreign key references Tipo_Documento(CTipo_Documento)
 );
 
 create table Empleado(
@@ -82,7 +82,7 @@ create table Producto(
 
 create table Habitacion(
   CHabitacion int not null constraint PK_Habitacion Primary Key Identity (101,1),
-  FOcupado Bit,
+  FOcupado Bit not null,
   NPiso smallint not null,
   QCapacidadH int not null,
   CTipo_Habitacion int not null foreign key references Tipo_Habitacion(CTipo_Habitacion)
