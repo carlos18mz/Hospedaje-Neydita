@@ -1,0 +1,4 @@
+--Pais
+insert into Pais(NPais) 
+  values 
+    ('Peru'),('Chile'),('Venezuela'),('Argentina'),('Suiza'),('Brazil'),('USA'),('Colombia'),('Canadá'),('Egipto'),('Francia'), ('España'),('Alemania')
