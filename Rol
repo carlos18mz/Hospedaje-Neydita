@@ -1,0 +1,9 @@
+--Rol
+insert into Rol(NRol, CServicio) 
+   values 
+      ('Jefe Teatro', 1),
+      ('Mantenimiento', 2),
+      ('Asist. Teatro', 1),
+      ('Masajista', 3),
+      ('Jefe Cine', 4),
+      ('Acomodador', 4)
