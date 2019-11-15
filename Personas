@@ -1,0 +1,17 @@
+--Persona
+insert into Persona(CPersona, NPersona, DNacimiento, CCiudad, NIdentificacion, CTipo_Documento, TEmail) 
+  values
+    (1013, 'Rodrigo Suarez', '19960621',1,'72192519',1,'rodrisu@gmail.com'),
+    (1123, 'Keiji Shinoda', '19850511',5,'117364595',3,'Shino@gmail.com'),
+    (1215, 'Juan Caro', '19760303',1,'72342213',1,'JuanCARO@gmail.com'),
+    (1234, 'Marcio Begazo', '20000323',1,'72415674',1,'MaBegazo@gmail.com'),
+    (4631, 'Julio Salazar', '19841017',7,'113573845',3,'JulioSa@gmail.com'),
+    (5342, 'Luis Ordoñez', '19991105',3,'742546894',2,'LuOrd@gmail.com'),
+    (2749, 'José Donayre', '19900214',12,'113673493',3,'JC@gmail.com'), 
+    (2713, 'Dylan Delgado', '20010330',4,'72463721',1,'Dylan1@gmail.com'),
+    (1414, 'Pedro Cornejo', '20100601',19,'72135325',1,'PeConejo@gmail.com'),
+    (4941, 'Sofia Linares', '19930520',6,'113243684',3,'Sofi123@gmail.com'),
+    (1382, 'Raúl Alcántara', '20010413',9,'134247528',3,'rauAl@gmail.com'),
+    (4712, 'Jorge Luna', '19851228',1,'72167528',1,'joluna@gmail.com'),
+    (2719, 'Ricardo Mendoza', '19790716',1,'72142535',1,'richi@gmail.com'),
+    (1314, 'Alejandro Ordoñez', '20150220',1,'72142535',1,null)
