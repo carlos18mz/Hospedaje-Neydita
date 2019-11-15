@@ -1,0 +1,6 @@
+--Tipo_habitacion
+insert into Tipo_Habitacion(CTipo_Habitacion, NTipo_Habitacion, MPrecio) 
+    values 
+      (1, 'Simple', 140.00),
+      (2, 'Matrimonial', 300.00),
+      (3, 'Deluxe', 460.00)
