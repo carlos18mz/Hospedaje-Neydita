@@ -1,0 +1,4 @@
+--Ciudad
+insert into Ciudad(NCiudad, CPais) 
+    values 
+      ('Lima',1), ('Santiago',2), ('Caracas',3), ('Trujillo', 1), ('Berlín', 13), ('Buenos Aires', 4), ('Brasilia', 6), ('Madrid', 12), ('Barcelona', 12), ('Zúrich', 5), ('Bogotá', 8), ('Cartagena', 8), ('Paris', 11), ('Toronto', 9), ('Washington', 7), ('New York', 7), ('El Cairo', 10), ('Alejandría', 10), ('Loreto', 1)
