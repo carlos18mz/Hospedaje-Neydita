@@ -1,0 +1,8 @@
+--Servicio
+insert into Servicio(CServicio, NServicio, FDisponible, QCapacidadS, MPrecio, TDetalle) 
+    values 
+      (1, 'Teatro', 1, 20, 30.00, 'Nuevo Servicio de teatro'),
+      (2, 'Piscina', 0, 50, 20.00, 'Piscina en mantenimiento'),
+      (3, 'Spa Lounge', 1, 14, 40.00, 'Relajate con nosotros'),
+      (4, 'Cine', 1, 15, 15.00, ''),
+      (5, 'Playground', 1, 8, 10.00, 'Disponible para niños')
