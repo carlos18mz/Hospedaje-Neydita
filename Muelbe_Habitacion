@@ -1,0 +1,7 @@
+/*Refrigeradora*/insert into Mueble_Habitacion(CTipoMueble,CHabitacion) values (1,102), (1,103), (1,201), (1,202), (1,203), 
+(1,301), (1,302), (1,303),(1,401), (1,501)
+/*Cocina*/insert into Mueble_Habitacion(CTipoMueble,CHabitacion) values (2,201), (2,301), (2,501)
+/*Lavadora*/insert into Mueble_Habitacion(CTipoMueble,CHabitacion) values (3,501)
+/*Secadora*/insert into Mueble_Habitacion(CTipoMueble,CHabitacion) values (4,103), (4,202), (4,303), (4,201), (4,301), (4,501)
+/*Sofá*/insert into Mueble_Habitacion(CTipoMueble,CHabitacion) values (5,102),(5,102), (5,103), (5,201), (5,202), (5,203), 
+(5,301), (5,302), (5,303),(5,401), (5,501)
