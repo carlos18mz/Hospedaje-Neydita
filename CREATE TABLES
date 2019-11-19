@@ -172,6 +172,7 @@ create table Detalle_Consumo(
 );
 
 create table Horario_Dia(
+  CHorario_Dia int not null constraint PK_Horario_Dia primary key,
   CHorario int not null Foreign Key references Horario(CHorario),
   CDia varchar(5) not null Foreign Key references Dia(CDia),
   CServicio int null Foreign Key references Servicio(CServicio),
