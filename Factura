@@ -1,0 +1,4 @@
+insert into Factura(CRUC,TDireccionlegal,NEmpresa,CFactura) values ('10164090588','Av. Los Angeles 251 Jesus Maria',
+'Resolutions SPA SAC',3), ('10026440381','Jr. Javier Gonzales 1540','Rostizados SAC',4), 
+('10164181826','Av. Rosa Toro 625','Pizza Roja SAC',6), ('10068269119','Av. José Fuentes 2369','Los Árboles SAC',7), 
+('10166237381','Calle María el Salvador','Sin Sentido SAC',8)
