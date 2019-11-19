@@ -193,5 +193,6 @@ create table Reserva_Habitacion(
 
 create table Plato_Ingrediente(
   CPlato int not null Foreign Key references Plato(CPlato),
-  CIngrediente int not null Foreign Key references Ingrediente(CIngrediente) 
+  CIngrediente int not null Foreign Key references Ingrediente(CIngrediente),
+  QUnidades decimal not null 
 );
