@@ -10,4 +10,6 @@ insert into Huesped(CHuesped, FAdulto, CApoderado)
       (1382, 1, null),
       (4712, 1, null),
       (2719, 1, null),
-      (1314, 0, 5342)
+      (1314, 0, 5342),
+      (4656, 1, null),
+      (9512, 1, null)
