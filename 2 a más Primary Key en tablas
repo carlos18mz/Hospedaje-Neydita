@@ -7,3 +7,4 @@ alter table Huesped_Categoria add constraint PK_Huesped_Categoria primary key (C
 alter table Lote add constraint PK_Lote primary key (CProveedor,CIngrediente,DFecha_Envio)
 alter table Mueble_Habitacion add constraint PK_Mueble_Habitacion primary key (CTipoMueble,CHabitacion)
 alter table Plato_Ingrediente add constraint PK_Plato_Ingrediente primary key (CPlato,CIngrediente)
+alter table Huesped_Reserva add constraint PK_Huesped_Reserva primary key (CReserva, CHuesped)
