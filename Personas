@@ -16,4 +16,5 @@ insert into Persona(CPersona, NPersona, DNacimiento, CCiudad, TEmail, NIdentific
     (2719, 'Ricardo Mendoza', '19790716',1,'richi@gmail.com','72142535',1),
     (1314, 'Alejandro Ordoñez', '20150220',1,null,'72142535',1),
     (4656, 'Sandro Semedo', '19500713',6,null,'70472767',1),
-    (9512, 'Miguel Flores', '19841217 ',12,'Miguel.Flo@hotmail.com','126437649',3)
+    (9512, 'Miguel Flores', '19841217 ',12,'Miguel.Flo@hotmail.com','126437649',3),
+    (7626 , 'Michael Owen', '19750827',14,'MichaelOD@gmail.com','146431673',2)
