@@ -110,9 +110,10 @@ create table Comprobante(
 create table Reserva(
   CReserva int not null constraint PK_Reserva Primary Key,
   FEstadia Bit not null,
-  CHuesped int not null Foreign Key references Huesped(CHuesped),
-  CComprobante int not null foreign Key references Comprobante(CComprobante),
-  MMonto money not null
+  CComprobante int null Foreign Key references Comprobante(CComprobante),
+  DInicioEstadia datetime not null,
+  DFinEstadia datetime null,
+  FCancelado
 );
 
 create table Snack(
@@ -161,7 +162,8 @@ create table Huesped_Categoria(
 
 create table Detalle_Servicio(
   CReserva int not null Foreign Key references Reserva(CReserva),
-  CServicio int not null Foreign Key references Servicio(CServicio)
+  CServicio int not null Foreign Key references Servicio(CServicio),
+  DUso datetime not null
 );
 
 create table Detalle_Consumo(
@@ -187,12 +189,15 @@ create table Mueble_Habitacion(
 create table Reserva_Habitacion(
   CReserva int not null Foreign Key references Reserva(CReserva),
   CHabitacion int not null Foreign Key references Habitacion(CHabitacion),
-  DInicioEstadia datetime not null,
-  DFinEstadia datetime not null
 );
 
 create table Plato_Ingrediente(
   CPlato int not null Foreign Key references Plato(CPlato),
   CIngrediente int not null Foreign Key references Ingrediente(CIngrediente),
-  QUnidades decimal not null 
+  QUnidades int not null 
 );
+
+create Huesped_Reserva(
+ CReserva int not null Foreign Key references Reserva(CReserva),
+ CHuesped int not null Foreign Key references Huesped(CHuesped),
+)
