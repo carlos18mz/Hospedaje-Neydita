@@ -1,6 +1,6 @@
 /*PK muchos a muchos*/
 alter table Reserva_Habitacion add constraint PK_Reserva_Habitacion primary key (CReserva, CHabitacion)
-alter table Detalle_Consumo add constraint PK_Detalle_Consumo primary key (CProducto, CReserva)
+alter table Detalle_Consumo add constraint PK_Detalle_Consumo primary key (CProducto, CReserva,DConsumo)
 alter table Detalle_Servicio add constraint PK_Detalle_Servicio primary key (CReserva, CServicio)
 alter table Horario_Dia add constraint PK_Horario_Dia primary key (CHorario, CDia)
 alter table Huesped_Categoria add constraint PK_Huesped_Categoria primary key (CHuesped,CCategoria)
