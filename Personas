@@ -1,17 +1,19 @@
 --Persona
-insert into Persona(CPersona, NPersona, DNacimiento, CCiudad, NIdentificacion, CTipo_Documento, TEmail) 
+insert into Persona(CPersona, NPersona, DNacimiento, CCiudad, TEmail, NIdentificacion, CTipo_Documento) 
   values
-    (1013, 'Rodrigo Suarez', '19960621',1,'72192519',1,'rodrisu@gmail.com'),
-    (1123, 'Keiji Shinoda', '19850511',5,'117364595',3,'Shino@gmail.com'),
-    (1215, 'Juan Caro', '19760303',1,'72342213',1,'JuanCARO@gmail.com'),
-    (1234, 'Marcio Begazo', '20000323',1,'72415674',1,'MaBegazo@gmail.com'),
-    (4631, 'Julio Salazar', '19841017',7,'113573845',3,'JulioSa@gmail.com'),
-    (5342, 'Luis Ordoñez', '19991105',3,'742546894',2,'LuOrd@gmail.com'),
-    (2749, 'José Donayre', '19900214',12,'113673493',3,'JC@gmail.com'), 
-    (2713, 'Dylan Delgado', '20010330',4,'72463721',1,'Dylan1@gmail.com'),
-    (1414, 'Pedro Cornejo', '20100601',19,'72135325',1,'PeConejo@gmail.com'),
-    (4941, 'Sofia Linares', '19930520',6,'113243684',3,'Sofi123@gmail.com'),
-    (1382, 'Raúl Alcántara', '20010413',9,'134247528',3,'rauAl@gmail.com'),
-    (4712, 'Jorge Luna', '19851228',1,'72167528',1,'joluna@gmail.com'),
-    (2719, 'Ricardo Mendoza', '19790716',1,'72142535',1,'richi@gmail.com'),
-    (1314, 'Alejandro Ordoñez', '20150220',1,'72142535',1,null)
+    (1013, 'Rodrigo Suarez', '19960621',1,'rodrisu@gmail.com','72192519',1),
+    (1123, 'Keiji Shinoda', '19850511',5,'Shino@gmail.com','117364595',3),
+    (1215, 'Juan Caro', '19760303',1,'JuanCARO@gmail.com','72342213',1),
+    (1234, 'Marcio Begazo', '20000323',1,'MaBegazo@gmail.com','72415674',1),
+    (4631, 'Julio Salazar', '19841017',7,'JulioSa@gmail.com','113573845',3),
+    (5342, 'Luis Ordoñez', '19991105',3,'LuOrd@gmail.com','742546894',2),
+    (2749, 'José Donayre', '19900214',12,'JC@gmail.com','113673493',3), 
+    (2713, 'Dylan Delgado', '20010330',4,'Dylan1@gmail.com','72463721',1),
+    (1414, 'Pedro Cornejo', '20100601',19,'PeConejo@gmail.com','72135325',1),
+    (4941, 'Sofia Linares', '19930520',6,'Sofi123@gmail.com','113243684',3),
+    (1382, 'Raúl Alcántara', '20010413',9,'rauAl@gmail.com','134247528',3),
+    (4712, 'Jorge Luna', '19851228',1,'joluna@gmail.com','72167528',1),
+    (2719, 'Ricardo Mendoza', '19790716',1,'richi@gmail.com','72142535',1),
+    (1314, 'Alejandro Ordoñez', '20150220',1,null,'72142535',1),
+    (4656, 'Sandro Semedo', '19500713',6,null,'70472767',1),
+    (9512, 'Miguel Flores', '19841217 ',12,'Miguel.Flo@hotmail.com','126437649',3)
