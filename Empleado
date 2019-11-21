@@ -1,8 +1,8 @@
 --Empleado
-insert into Empleado(CEmpleado, CRol, CEncargado) 
+insert into Empleado(CEmpleado, CRol, CEncargado,DFecha_Contratacion, MSueldo) 
     values 
-      (1013, 1, null),
-      (1123, 3, 1013),
-      (1215, 5, null),
-      (1234, 3, 1013),
-      (4631, 6, 1215)
+      (1013, 1, null,'20010519'),
+      (1123, 3, 1013,'20111214'),
+      (1215, 5, null,'20051023'),
+      (1234, 3, 1013,'20070725'),
+      (4631, 6, 1215,'20100217')
