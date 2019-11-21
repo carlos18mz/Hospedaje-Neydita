@@ -1,9 +1,9 @@
 --Rol
-insert into Rol(C,Rol,NRol, CServicio,MSueldo) 
+insert into Rol(C,Rol,NRol, CServicio) 
    values 
-      (1,'Jefe Teatro', 1,1200),
-      (2,'Mantenimiento', 2,800),
-      (3,'Asist. Teatro', 1,700),
-      (4,'Masajista', 3,900),
-      (5,'Jefe Cine', 4,1100),
-      (6,'Acomodador', 4,700)
+      (1,'Jefe Teatro', 1),
+      (2,'Mantenimiento', 2),
+      (3,'Asist. Teatro', 1),
+      (4,'Masajista', 3),
+      (5,'Jefe Cine', 4),
+      (6,'Acomodador', 4)
