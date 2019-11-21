@@ -10,4 +10,8 @@ insert into Huesped_Reserva(CHuesped,CReserva) values
 (5342,10),
 (1314,10),
 (9512,3),
-(7626,8)
+(7626,8),
+(1382,2),
+(1382,5),
+(1382,7),
+(1382,9)
