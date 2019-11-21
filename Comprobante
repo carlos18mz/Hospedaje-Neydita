@@ -1,3 +1,39 @@
-insert into Comprobante(CComprobante,DEmision,FBoleta) values 
-(1,'20130712',1),(2,'20150813',1),(3,'20180628',0),(4,'20161009',0),(5,'20161209',1), (6,'20180503',0),
-(7,'20170721',0), (8,'20160324',0), (9,'20161105',1), (10,'20161105',1)
+insert into Comprobante(CComprobante,DEmision,FBoleta,MMonto) values 
+(1,'20130712',1,null),(2,'20150813',1,null),(3,'20180628',0,null),(4,'20161009',0,null),(5,'20161209',1,null), (6,'20180503',0,null),
+(7,'20170721',0,null), (8,'20160324',0,null), (9,'20161105',1,null), (10,'20161105',1,null)
+
+/*Modificar MMonto*/
+create view vw_monto_consumo as
+select r.CReserva, sum(p.MPrecio*dc.QConsumo) 'Monto Consumo'
+from Reserva r 
+join Detalle_Consumo dc on dc.CReserva = r.CReserva 
+join Producto p on dc.CProducto = p.CProducto
+group by r.CReserva
+
+create view vw_monto_servicio as
+select r.CReserva, sum(s.MPrecio) 'Monto Servicio'
+from Reserva r 
+join Detalle_Servicio ds on ds.CReserva = r.CReserva 
+join Servicio s on s.CServicio = ds.CServicio
+group by r.CReserva		
+
+create view vw_monto_hab as
+select r.CReserva,h.CHabitacion,th.MPrecio,datediff(day, r.DInicioEstadia,r.DFinEstadia) 'Días de estadía' ,(th.MPrecio*datediff(day, r.DInicioEstadia,r.DFinEstadia)) 'Monto de estadía' 
+from Reserva r 
+join Reserva_Habitacion rh on rh.CReserva = r.CReserva 
+join Habitacion h on h.CHabitacion = rh.CHabitacion 
+join Tipo_Habitacion th on th.CTipo_Habitacion = h.CTipo_Habitacion
+
+create view vw_monto_total as
+select v1.CReserva, (v1.[Monto Consumo]+v2.[Monto de estadía]+v3.[Monto Servicio])*(1-c.NDescuento) 'Monto_Total'
+from vw_monto_consumo v1 
+join vw_monto_hab v2 on v1.CReserva = v2.CReserva 
+join vw_monto_servicio v3 on v1.CReserva = v3.CReserva 
+join Huesped_Reserva hr on hr.CReserva = v1.CReserva 
+join Huesped h on h.CHuesped = hr.CHuesped 
+join Huesped_Categoria hc on hc.CHuesped = h.CHuesped 
+join Categoria c on c.CCategoria = hc.CCategoria
+
+update Comprobante set MMonto=v1.Monto_Total
+from vw_monto_total v1
+where v1.CReserva=CComprobante
