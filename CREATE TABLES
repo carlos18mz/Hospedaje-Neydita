@@ -56,7 +56,8 @@ create table Rol(
 create table Categoria(
   CCategoria int not null constraint PK_Categoria Primary Key,
   NCategoria varchar(20) not null,
-  NDescuento real not null
+  NDescuento real not null,
+  NumRequisito int not null
 );
 
 create table Horario(
@@ -104,7 +105,8 @@ create table TipoMueble(
 create table Comprobante(
   CComprobante int not null constraint PK_Comprobante Primary Key,
   DEmision datetime not null,
-  FBoleta bit not null
+  FBoleta bit null,
+  MMonto int
 );
 
 create table Reserva(
