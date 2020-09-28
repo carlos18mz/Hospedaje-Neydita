@@ -25,7 +25,7 @@ join Habitacion h on h.CHabitacion = rh.CHabitacion
 join Tipo_Habitacion th on th.CTipo_Habitacion = h.CTipo_Habitacion
 
 create view vw_monto_total as
-select v1.CReserva, (v1.[Monto Consumo]+v2.[Monto de estadía]+v3.[Monto Servicio])*(1-c.NDescuento) 'Monto_Total'
+select v1.CReserva, SUM((v1.[Monto Consumo]+v2.[Monto de estadía]+v3.[Monto Servicio])*(1-c.NDescuento)) as 'Monto_Total'
 from vw_monto_consumo v1 
 join vw_monto_hab v2 on v1.CReserva = v2.CReserva 
 join vw_monto_servicio v3 on v1.CReserva = v3.CReserva 
@@ -33,6 +33,7 @@ join Huesped_Reserva hr on hr.CReserva = v1.CReserva
 join Huesped h on h.CHuesped = hr.CHuesped 
 join Huesped_Categoria hc on hc.CHuesped = h.CHuesped 
 join Categoria c on c.CCategoria = hc.CCategoria
+group by v1.CReserva
 
 update Comprobante set MMonto=v1.Monto_Total
 from vw_monto_total v1
