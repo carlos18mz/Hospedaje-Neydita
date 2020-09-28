@@ -1,3 +1,5 @@
+
+
 create table Pais(
   CPais int not null constraint PK_Pais Primary key,
   NPais varchar(15) not null
@@ -24,6 +26,24 @@ create table Persona(
   CTipo_Documento int not null Foreign key references Tipo_Documento(CTipo_Documento)
 );
 
+
+create table Servicio(
+  CServicio int not null constraint PK_Servicio Primary key,
+  NServicio nvarchar(20) not null,
+  FDisponible Bit not null, 
+  MPrecio Money not null, 
+  TDetalle ntext not null, 
+  QCapacidadS smallint not null
+);
+
+
+create table Rol(
+  CRol int not null constraint PK_Rol Primary Key,
+  NRol nvarchar(20) not null,
+  CServicio int not null Foreign Key references Servicio(CServicio)
+);
+
+
 create table Empleado(
   CEmpleado int not null constraint PK_Empleado Primary Key,
   CRol int not null Foreign Key references Rol(CRol), 
@@ -38,21 +58,6 @@ create table Huesped(
   FAdulto Bit not null, --Bool type
   CApoderado int null Foreign Key references Huesped(CHuesped),
   CPersona int not null Foreign Key references Persona(CPersona)
-);
-
-create table Servicio(
-  CServicio int not null constraint PK_Servicio Primary key,
-  NServicio nvarchar(20) not null,
-  FDisponible Bit not null, 
-  MPrecio Money not null, 
-  TDetalle ntext not null, 
-  QCapacidadS smallint not null
-);
-
-create table Rol(
-  CRol int not null constraint PK_Rol Primary Key,
-  NRol nvarchar(20) not null,
-  CServicio int not null Foreign Key references Servicio(CServicio)
 );
 
 create table Categoria(
@@ -85,6 +90,13 @@ create table Producto(
   CTienda int not null Foreign Key references Tienda(CTienda)
 );
 
+create table Tipo_Habitacion(
+  CTipo_Habitacion int not null constraint PK_Tipo_Habitacion Primary Key,
+  NTipo_Habitacion nvarchar(20) not null,
+  MPrecio money not null
+);
+
+
 create table Habitacion(
   CHabitacion int not null constraint PK_Habitacion Primary Key,
   FOcupado Bit not null,
@@ -93,11 +105,7 @@ create table Habitacion(
   CTipo_Habitacion int not null foreign key references Tipo_Habitacion(CTipo_Habitacion)
 );
 
-create table Tipo_Habitacion(
-  CTipo_Habitacion int not null constraint PK_Tipo_Habitacion Primary Key,
-  NTipo_Habitacion nvarchar(20) not null,
-  MPrecio money not null
-);
+
 
 create table TipoMueble(
   CTipoMueble int not null constraint PK_TipoMueble primary key,
@@ -108,7 +116,8 @@ create table Comprobante(
   CComprobante int not null constraint PK_Comprobante Primary Key,
   DEmision datetime not null,
   FBoleta bit null,
-  MMonto int
+  MMonto int,
+  FCancelado bit not null,
 );
 
 create table Reserva(
@@ -117,7 +126,7 @@ create table Reserva(
   CComprobante int null Foreign Key references Comprobante(CComprobante),
   DInicioEstadia datetime not null,
   DFinEstadia datetime null,
-  FCancelado bit not null,
+
 );
 
 create table Snack(
@@ -145,7 +154,6 @@ create table Plato(
   CPlato int not null constraint PK_Plato Primary Key,
   TPreparacion ntext not null,
   CProducto int not null Foreign Key references Producto(CProducto)
-
 );
 
 create table Proveedor(
@@ -205,7 +213,7 @@ create table Plato_Ingrediente(
   QUnidades int not null 
 );
 
-create Huesped_Reserva(
+create table Huesped_Reserva(
  CReserva int not null Foreign Key references Reserva(CReserva),
  CHuesped int not null Foreign Key references Huesped(CHuesped),
 )
